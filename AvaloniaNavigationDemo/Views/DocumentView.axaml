@@ -1,0 +1,23 @@
+<UserControl
+    x:Class="AvaloniaNavigationDemo.Views.DocumentView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:AvaloniaNavigationDemo.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:DocumentViewModel"
+    mc:Ignorable="d">
+    <Grid ColumnDefinitions="200, *">
+        <ListBox ItemsSource="{Binding Pages}" SelectedItem="{Binding SelectedPage}">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="vm:DocumentPageViewModel">
+                    <TextBlock Text="{Binding Title}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ContentControl Grid.Column="1" Content="{Binding SelectedPage}" />
+    </Grid>
+</UserControl>
