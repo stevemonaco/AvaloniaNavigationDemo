@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using AvaloniaNavigationDemo.ViewModels;
 using System;
+using System.ComponentModel;
 
 namespace AvaloniaNavigationDemo.Views;
 public partial class MainWindow : Window
@@ -21,7 +22,7 @@ public partial class MainWindow : Window
         base.OnDataContextChanged(e);
     }
 
-    private void ViewModel_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+    private void ViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == "ActiveContent")
         {
